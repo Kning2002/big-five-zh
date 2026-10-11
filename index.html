@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="免费、开源的中文大五人格测评，基于 IPIP 120 题库，在浏览器本地计分。">
+  <title>五种倾向 · 中文大五人格测评</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header><a href="./" class="brand">五种倾向 <span>BIG FIVE</span></a><a href="https://github.com/Kning2002/big-five-zh">开源代码 ↗</a></header>
+  <main>
+    <section id="intro">
+      <p class="eyebrow">认识自己，从观察倾向开始</p>
+      <h1>你有很多面。<br><em>用五个维度，看见自己。</em></h1>
+      <p class="lead">人格不必装进一种类型。通过日常行为与感受，探索你的开放性、尽责性、外向性、宜人性与神经质。</p>
+      <div class="facts"><span>120 道题</span><span>约 15–20 分钟</span><span>无需注册 · 本地计分</span></div>
+      <button id="start" disabled>正在载入题库…</button>
+      <p id="load-error" role="alert"></p>
+      <div class="traits"><span>O <b>开放性</b></span><span>C <b>尽责性</b></span><span>E <b>外向性</b></span><span>A <b>宜人性</b></span><span>N <b>神经质</b></span></div>
+      <aside>根据平时的自己作答，无需追求“理想答案”。题库采用社区中文译文，本站未独立验证其中文信效度。结果用于自我了解，不用于诊断或人员筛选。</aside>
+    </section>
+    <section id="quiz" hidden>
+      <div class="quiz-heading"><h2 tabindex="-1" id="page-title">你的日常倾向</h2><span id="progress-text" aria-live="polite"></span></div>
+      <progress id="progress" max="120" value="0" aria-label="已完成题数"></progress>
+      <p class="muted">1 = 很不符合，5 = 很符合。请按整句话的含义选择。</p>
+      <form id="questions"></form>
+      <p id="validation" role="alert"></p>
+      <nav class="actions"><button id="previous" class="secondary">上一页</button><span id="page-number"></span><button id="next">下一页</button></nav>
+      <div class="save-line"><span id="save-status">答案仅保存在此浏览器，可关闭后继续。</span><button id="reset" class="text-button">清空并重新开始</button></div>
+    </section>
+    <section id="results" hidden>
+      <p class="eyebrow">你的五个维度</p><h2 id="result-title" tabindex="-1">理解倾向，保留可能。</h2>
+      <p class="lead">高低没有统一的好坏，每种倾向都需要结合生活情境理解。</p>
+      <div id="scores"></div>
+      <aside>横条为量表可得分范围内的 0–100 线性换算，<strong>不是人群百分位</strong>，也不代表超过了多少人。原始分范围为 24–120，平均分范围为 1–5。本版不提供未经验证的常模分档或人格类型标签。</aside>
+      <div class="actions"><button id="download">下载结果 JSON</button><button id="review" class="secondary">返回检查答案</button></div>
+    </section>
+  </main>
+  <footer>基于 Johnson IPIP 120 题库 · <a href="https://github.com/Alheimsins/b5-johnson-120-ipip-neo-pi-r">题库与翻译来源</a><br>答案不发送到服务器；本地保存使用浏览器 localStorage。</footer>
+</body>
+</html>
